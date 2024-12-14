@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-
+import { ActivatedRoute } from '@angular/router';
 @Component({
   selector: 'app-product-detail',
   standalone: true,
@@ -9,4 +9,12 @@ import { Component } from '@angular/core';
 })
 export class ProductDetailComponent {
 
+  constructor(private route: ActivatedRoute) { }
+
+  ngOnInit() {
+    this.route.params.subscribe(params => {
+      const category = params['category'];
+      const productId = params['id'];
+    });
+  }
 }
