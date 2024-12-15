@@ -8,19 +8,18 @@ import { ActivatedRoute, RouterLink, RouterModule, RouterOutlet } from '@angular
   styleUrl: './product-detail.component.css'
 })
 export class ProductDetailComponent {
-
   category: String
   productId: String
 
   constructor(private route: ActivatedRoute) {
-    this.category = "clothing";
+    this.category = "jewelry";
     this.productId = "12345";
   }
 
   ngOnInit() {
     this.route.params.subscribe(params => {
-      const category = params['category'];
-      const productId = params['id'];
+      this.category = params['category'];
+      this.productId = params['id'];
     });
   }
 }
