@@ -1,11 +1,10 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute, RouterLink, RouterModule, RouterOutlet } from '@angular/router';
 @Component({
-  selector: 'app-product-detail',
-  standalone: true,
-  imports: [RouterModule, RouterOutlet],
-  templateUrl: './product-detail.component.html',
-  styleUrl: './product-detail.component.css'
+    selector: 'app-product-detail',
+    imports: [RouterModule, RouterOutlet],
+    templateUrl: './product-detail.component.html',
+    styleUrl: './product-detail.component.css'
 })
 export class ProductDetailComponent {
   category: String
