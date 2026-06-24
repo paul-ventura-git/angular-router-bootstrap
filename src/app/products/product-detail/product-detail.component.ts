@@ -1,5 +1,8 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute, RouterLink } from '@angular/router';
+import { PRODUCTS } from '../../data/products.mock';
+import { Product } from '../../models/product';
+
 @Component({
     selector: 'app-product-detail',
     standalone: true,
@@ -8,18 +11,25 @@ import { ActivatedRoute, RouterLink } from '@angular/router';
     styleUrls: ['./product-detail.component.css']
 })
 export class ProductDetailComponent {
-  category: string;
-  productId: string;
+  products = PRODUCTS;
+  product?: Product;
 
-  constructor(private route: ActivatedRoute) {
-    this.category = "jewelry";
-    this.productId = "12345";
-  }
+  constructor(private route: ActivatedRoute) {}
 
   ngOnInit() {
+
     this.route.params.subscribe(params => {
-      this.category = params['category'];
-      this.productId = params['id'];
+
+      const category = params['category'];
+      const id = Number(params['id']);
+
+      this.product = this.products.find(
+        p => p.category === category && p.id === id
+      );
+
     });
+
   }
 }
+
+
