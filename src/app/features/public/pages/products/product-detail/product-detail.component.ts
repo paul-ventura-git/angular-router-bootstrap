@@ -17,18 +17,13 @@ export class ProductDetailComponent {
   constructor(private route: ActivatedRoute) {}
 
   ngOnInit() {
-
     this.route.params.subscribe(params => {
-
       const category = params['category'];
       const id = Number(params['id']);
-
       this.product = this.products.find(
         p => p.category === category && p.id === id
       );
-
     });
-
   }
 }
 
