@@ -1,14 +1,15 @@
 import { Component } from '@angular/core';
-import { ActivatedRoute, RouterLink, RouterModule, RouterOutlet } from '@angular/router';
+import { ActivatedRoute, RouterLink } from '@angular/router';
 @Component({
     selector: 'app-product-detail',
-    imports: [RouterModule, RouterOutlet],
+    standalone: true,
+    imports: [RouterLink],
     templateUrl: './product-detail.component.html',
-    styleUrl: './product-detail.component.css'
+    styleUrls: ['./product-detail.component.css']
 })
 export class ProductDetailComponent {
-  category: String
-  productId: String
+  category: string;
+  productId: string;
 
   constructor(private route: ActivatedRoute) {
     this.category = "jewelry";
